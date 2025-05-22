@@ -1,7 +1,7 @@
 function App() {
   return (
     <div className="App">
-      this is app
+      这是一个React应用程序
     </div>
   );
 }
