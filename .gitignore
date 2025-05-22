@@ -1,4 +1,5 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# 下面这些文件在提交的时候是被忽略的，不会提交
+
 
 # dependencies
 /node_modules
@@ -21,3 +22,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# 草稿文件
+draft
