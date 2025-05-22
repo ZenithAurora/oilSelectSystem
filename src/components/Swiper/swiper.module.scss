@@ -1,0 +1,95 @@
+// swiper.module.scss
+.swiperContainer {
+  position: relative;
+  max-width: 1200px; // 轮播最大宽度
+  margin: 2rem auto;
+  overflow: hidden; // 隐藏溢出的幻灯片
+  border-radius: 12px; // 圆角
+  box-shadow: 0 8px 24px rgba(0, 243, 255, 0.1); // 工业风阴影
+
+  // 轮播内容容器（包含所有幻灯片）
+  .slideWrapper {
+    display: flex; // 关键：横向排列幻灯片
+    width: 100%;
+  }
+
+  // 单张幻灯片
+  .slide {
+    flex: 0 0 100%; // 每张占满容器宽度
+    height: 500px; // 固定高度（可根据需求调整）
+  }
+
+  // 幻灯片图片
+  .slideImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // 图片填充方式（覆盖）
+    filter: brightness(0.8); // 暗化图片突出文字（可选）
+  }
+
+  // 切换箭头
+  .prevBtn,
+  .nextBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(10, 26, 47, 0.8); // 工业蓝背景
+    border: 2px solid rgba(0, 243, 255, 0.3);
+    color: #00F3FF; // 工业风 cyan 色
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 10; // 确保在图片上方
+
+    &:hover {
+      border-color: #00F3FF;
+      background: rgba(10, 26, 47, 1);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    // 左箭头位置
+    &.prevBtn {
+      left: 20px;
+    }
+
+    // 右箭头位置
+    &.nextBtn {
+      right: 20px;
+    }
+  }
+
+  // 分页点容器
+  .pagination {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+  }
+
+  // 分页点
+  .paginationDot {
+    width: 12px;
+    height: 12px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 243, 255, 0.3); // 未激活颜色
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      background: rgba(0, 243, 255, 0.6);
+    }
+
+    // 激活状态
+    &.active {
+      background: #00F3FF; // 激活颜色
+      transform: scale(1.2); // 放大效果
+    }
+  }
+}

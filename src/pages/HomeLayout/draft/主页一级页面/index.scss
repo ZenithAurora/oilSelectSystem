@@ -1,0 +1,282 @@
+// 基础变量
+$oil-blue: #0A182E;
+$pipeline-red: #FF4D4F;
+$petrol-cyan: #00F3FF;
+$steel-gray: #2A3A4E;
+$hud-gradient: linear-gradient(45deg, $petrol-cyan 0%, rgba($pipeline-red, 0.8) 100%);
+
+
+// 全局样式重置
+.industrial-layout {
+  min-height: 100vh;
+  background: $oil-blue;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+// 可折叠侧边栏
+.cyber-sider {
+  background: rgba($oil-blue, 0.95) !important;
+  backdrop-filter: blur(5px);
+  border-right: 1px solid rgba($petrol-cyan, 0.2) !important;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+
+  .ant-layout-sider-children {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  // 折叠按钮
+  .collapse-trigger {
+    position: absolute;
+    top: 90vh;
+    left: 24px;
+    color: $petrol-cyan;
+    font-size: 16px;
+    border: 1px solid rgba($petrol-cyan, 0.3);
+    border-radius: 6px;
+    background: rgba($steel-gray, 0.3);
+    transition: all 0.3s;
+    width: 40px;
+    height: 40px;
+
+    &:hover {
+      color: white;
+      background: rgba($petrol-cyan, 0.5);
+      border-color: $petrol-cyan;
+      transform: scale(1.1);
+    }
+  }
+}
+
+
+
+// 工业风LOGO
+.industrial-logo {
+  padding: 24px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba($steel-gray, 0.5);
+  overflow: hidden;
+  transition: all 0.3s;
+
+
+  img {
+    // margin-top: 20px !important;
+    width: 40px;
+    height: 100px;
+    filter: drop-shadow(0 0 10px $petrol-cyan);
+    transition: all 0.3s;
+    animation: rotate 2s linear infinite;
+  }
+
+  .gradient-text {
+    margin-left: 16px;
+    white-space: nowrap;
+    font-size: 1.4rem;
+    background: $hud-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: opacity 0.3s;
+  }
+
+  // 折叠状态
+  .ant-layout-sider-collapsed & {
+    justify-content: center;
+    padding: 24px 0;
+
+    img {
+      margin-right: 0;
+    }
+
+    .gradient-text {
+      opacity: 0;
+    }
+  }
+}
+
+
+// HUD风格菜单
+.hud-menu {
+  flex: 1;
+  padding: 24px 24px 24px 0;
+  background: transparent !important;
+
+
+  .ant-menu {
+    background: transparent;
+    border-right: 0 !important;
+
+    &-item {
+      margin: 12px 16px !important;
+      height: auto !important;
+      padding: 16px 24px !important;
+      border-radius: 24px;
+      transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
+      position: relative;
+      overflow: hidden;
+
+      &::after {
+        display: none !important;
+      }
+
+      // 图标样式
+      .anticon {
+        font-size: 18px;
+        color: $petrol-cyan;
+        transition: transform 1s;
+      }
+
+      // 文字样式
+      a {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        transition: all 0.3s;
+      }
+
+      // 悬停效果
+      &:hover {
+        background: rgba($steel-gray, 0.3) !important;
+        transform: translateX(8px);
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: $hud-gradient;
+          animation: hudFlow 1s linear infinite;
+        }
+      }
+
+      // 选中状态
+      &.ant-menu-item-selected {
+        background: linear-gradient(90deg, rgba($petrol-cyan, 0.12) 0%, transparent 100%) !important;
+        border: 1px solid rgba($petrol-cyan, 0.3);
+        box-shadow: 0 0 15px rgba($petrol-cyan, 0.2);
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 3px;
+          background: $hud-gradient;
+        }
+      }
+    }
+  }
+
+  // 折叠状态菜单
+  .ant-layout-sider-collapsed & {
+
+    .ant-menu-item {
+      padding: 10px !important;
+
+      &:hover {
+        transform: none;
+      }
+
+      a {
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// 主内容区
+.industrial-content {
+  flex: 1;
+  background: linear-gradient(45deg, rgba($oil-blue, 1) 0%, rgba($steel-gray, 0.8) 100%);
+  // padding: 1px;
+  position: relative;
+  overflow-y: auto;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+      linear-gradient(rgba($petrol-cyan, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($petrol-cyan, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 1;
+    pointer-events: none;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+    scale: 0.6 !important;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    scale: 0.6 !important;
+  }
+}
+
+// 动画关键帧
+
+@keyframes logoGlow {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 12px $petrol-cyan);
+  }
+
+  50% {
+    filter: drop-shadow(0 0 20px $pipeline-red);
+  }
+}
+
+@keyframes hudFlow {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+// 响应式设计
+@media (max-width: 768px) {
+  .cyber-sider {
+    width: 100% !important;
+    max-width: 280px !important;
+    position: fixed !important;
+    z-index: 1000;
+
+    &-collapsed {
+      transform: translateX(-100%);
+    }
+  }
+
+  .industrial-content {
+    padding: 24px;
+    margin-left: 0 !important;
+  }
+
+  .collapse-trigger {
+    display: none;
+  }
+}

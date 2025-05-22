@@ -1,0 +1,233 @@
+.container {
+  --neon-blue: #108f95;
+  --hud-green: #7fff00;
+  --cyber-red: #ff073a;
+  --dark-bg: #0a182e;
+  --table-row-bg: rgba(28, 41, 58, 0.8);
+  --table-hover-bg: rgba(77, 100, 136, 0.4);
+  --cyber-border: 1px solid rgba(16, 143, 149, 0.3);
+  --neon-glow: 0 0 0 var(--neon-blue),
+    0 0 5px var(--neon-blue),
+    0 0 10px var(--neon-blue);
+}
+
+.container {
+  height: 100%;
+  background: linear-gradient(45deg, var(--dark-bg) 0%, #1a2a4e 100%) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 添加科技感背景装饰 */
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 25%,
+      rgba(12, 105, 110, 0.3) 50%,
+      transparent 75%);
+  animation: scanline 4s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+.data-record-title {
+  position: relative;
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--neon-blue);
+}
+
+.data-record-title {
+  color: var(--hud-green);
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: var(--neon-glow);
+  position: relative;
+  display: inline-block;
+  padding: 0 1rem;
+  background: linear-gradient(to right, var(--neon-blue), transparent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* 添加动态边框效果 */
+.data-record-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,
+      transparent,
+      var(--neon-blue) 50%,
+      transparent);
+  animation: borderFlow 3s linear infinite;
+}
+
+@keyframes borderFlow {
+  0% {
+    background-position: -100% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* 调整表格容器 */
+.container :global(.ant-table) {
+  background: transparent !important;
+  border: var(--cyber-border);
+  border-radius: 8px;
+  backdrop-filter: blur(8px);
+}
+
+/* 表格行高光效果 */
+.container :global(.ant-table-row) {
+  transition: all 0.3s ease;
+  background: var(--table-row-bg) !important;
+}
+
+.container :global(.ant-table-row:hover) {
+  background: var(--table-hover-bg) !important;
+  transform: translateX(8px);
+  box-shadow: var(--neon-glow);
+}
+
+/* 输入框科技感样式 */
+.container :global(.ant-input) {
+  background: rgba(16, 143, 149, 0.1) !important;
+  border: 1px solid var(--neon-blue) !important;
+  color: var(--hud-green) !important;
+  transition: all 0.3s ease;
+}
+
+.container :global(.ant-input:hover),
+.container :global(.ant-input:focus) {
+  box-shadow: var(--neon-glow);
+  background: rgba(16, 143, 149, 0.2) !important;
+}
+
+
+// 按钮样式
+:global .BtnGroup {
+  margin-left: 30px;
+
+  .file-upload-label {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .uploadFileInput {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .action-button {
+    height: 40px;
+    border-radius: 16px;
+    font-weight: 500;
+    transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+    padding: 0 24px;
+    border: 1px solid;
+    letter-spacing: 0.5px;
+
+    &-button:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    &.upload-button {
+      background: linear-gradient(45deg, #1f3957, #0c2541);
+      border-color: #1d5b9e;
+      color: white;
+
+      &:hover {
+        background: linear-gradient(45deg, #143e6a, #0b2a4d);
+      }
+    }
+
+    &.add-button {
+      background: linear-gradient(45deg, #003a3f, #023542);
+      border-color: #048cae;
+      color: white;
+
+      &:hover {
+        background: linear-gradient(45deg, #005a70, #00495d);
+      }
+    }
+
+    &.export-button {
+      background: linear-gradient(45deg, #37326e, #262251);
+      border-color: #574ebb;
+      color: white;
+
+      &:hover {
+        background: linear-gradient(45deg, #373273, #2f2a6c);
+      }
+    }
+  }
+}
+
+//表单样式
+// 蒙层样式
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: modalEntrance 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.modalWrapper {
+  width: 800px;
+  background: #1a2533;
+  border-radius: px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: modalEntrance 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+
+// 动画定义
+@keyframes modalEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

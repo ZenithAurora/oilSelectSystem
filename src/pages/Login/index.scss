@@ -1,0 +1,326 @@
+// 高级配色方案
+$deep-oil: #0a1620;
+$gold-accent: #f8600eed;
+$oil-green: #2ecc71;
+$primary-color: #34495e;
+$accent-color: #3498db;
+$gradient-start: #1abc9c;
+$gradient-end: #3498db;
+$glass-white: rgba(255, 255, 255, 0.92);
+
+// 高级动效
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+    scale: 0.8;
+  }
+
+  50% {
+    transform: translateY(-20px);
+    scale: 0.8;
+  }
+
+  100% {
+    transform: translateY(0px);
+    scale: 0.8;
+  }
+}
+
+@keyframes rotateLogo {
+  0% {
+    transform: rotate(0deg);
+    scale: 1.2;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    scale: 1.2;
+  }
+
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 90% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes btnShine {
+  0% {
+    left: -50%;
+  }
+
+  100% {
+    left: 150%;
+  }
+}
+
+.login-container {
+  min-height: 100vh;
+  min-width: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('/assets/img/bg.jpg');
+  background-size: 120% 100%;
+  animation: gradientFlow 15s ease-in-out infinite;
+  position: relative;
+
+
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle,
+        rgba(255, 255, 255, 0.5) 20%,
+        transparent 60%);
+    transform: translate(-25%, -25%);
+  }
+}
+
+.glass-card {
+  width: 880px;
+  border-radius: 36px !important;
+  backdrop-filter: blur(40px);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.25),
+    inset 0 2px 6px rgba(255, 255, 255, 0.2);
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.05) 100%) !important;
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.05));
+    z-index: -1;
+    border-radius: 40px;
+  }
+
+  .card-content {
+    display: flex;
+    height: 500px;
+  }
+}
+
+// 左侧面板
+.brand-panel {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.05);
+  margin: 10px;
+  border-radius: 32px;
+
+  .logo-icon {
+    height: 200px !important;
+    width: 80px !important;
+    font-size: 72px;
+    color: $gold-accent;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+    animation: rotateLogo 3s linear infinite;
+    margin-bottom: 20px;
+  }
+
+  .system-title {
+    background: linear-gradient(45deg, #00F3FF 0%, rgba(255, 77, 79, 0.8) 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-top: -30px !important;
+  }
+
+  .system-tagline {
+    background: linear-gradient(45deg, rgba(255, 77, 79, 0.8) 0%, #00F3FF 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bolder;
+    font-size: 18px;
+  }
+}
+
+.form-panel {
+  flex: 1;
+  padding: 40px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -1px;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(to bottom,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent);
+  }
+
+  .form-header {
+    margin-bottom: 40px;
+    text-align: center;
+
+    .welcome-text {
+      color: #716e6e !important;
+      margin-bottom: 8px !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .login-tip {
+      color: #999 !important;
+    }
+  }
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid #fa846d63 !important;
+  border-radius: 40px !important;
+  height: 48px;
+  color: #666 !important;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-2px);
+  }
+
+  &:focus {
+    box-shadow: 0 0 12px rgba($accent-color, 0.3) !important;
+  }
+
+  .ant-input-prefix {
+    font-weight: 800;
+    color: #32303090 !important;
+    transition: transform 0.3s;
+  }
+
+  &:hover .ant-input-prefix {
+    transform: scale(1.1);
+  }
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+}
+
+.oil-btn {
+  width: 100%;
+  height: 52px;
+  border-radius: 36px !important;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg,
+      rgba($gradient-start, 0.3),
+      rgba($gradient-end, 0.8)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  // box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    backdrop-filter: blur(2px);
+    background: linear-gradient(30deg,
+        transparent,
+        rgba(255, 255, 255, 0.05),
+        transparent);
+    transform: rotate(15deg);
+    animation: btnShine 6s infinite;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba($accent-color, 0.3) !important;
+    width: 102%;
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+
+  .ant-checkbox-wrapper {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+
+  .forgot-password {
+    color: $gold-accent !important;
+    cursor: pointer;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .glass-card {
+    width: 90%;
+    margin: 20px;
+    backdrop-filter: blur(6px);
+
+    .card-content {
+      flex-direction: column;
+      height: auto;
+    }
+
+    .brand-panel {
+      padding: 24px;
+      background: rgba($deep-oil, 0.85);
+      border-radius: 24px;
+      margin: 8px;
+
+      .industry-icon {
+        font-size: 56px;
+      }
+    }
+
+    .form-panel {
+      padding: 24px;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+}

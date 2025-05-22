@@ -1,0 +1,505 @@
+// 变量定义
+$tech-primary: #00f7ff; // 科技蓝
+$tech-bg: linear-gradient(45deg, #0a0e2a, #1a1f4c); // 渐变背景
+$tech-card-bg: rgba(12, 25, 55, 0.8); // 半透明卡片背景
+$tech-border: rgba(0, 247, 255, 0.3); // 科技边框
+$tech-shadow: 0 0 15px rgba(0, 247, 255, 0.3); // 科技发光效果
+$tech-neon: #00f7ff; // 科技霓虹色
+$tech-glow: 0 0 15px rgba(0, 247, 255, 0.5); // 发光效果
+
+//【1】 整个容器
+.pageContainer {
+  background: $tech-bg;
+  min-height: 100vh;
+  color: #fff;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  scroll-snap-type: none;
+}
+
+
+// 【头部样式升级】
+.header {
+  text-align: center;
+  position: relative;
+  padding: 1.5rem 2rem;
+  overflow: hidden;
+  background: linear-gradient(45deg,
+      rgba(10, 14, 42, 0.95) 30%,
+      rgba(26, 31, 76, 0.95) 70%);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid rgba($tech-neon, 0.3);
+  box-shadow: $tech-glow;
+  position: relative;
+  overflow: hidden; // 确保溢出部分隐藏
+
+
+  // 光带扫描动画
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba($tech-neon, 0.15),
+        transparent);
+    animation: headerScan 6s infinite linear;
+    transform: skewX(-45deg);
+  }
+
+  .headerTitle {
+    position: relative;
+    font-size: 2.4rem;
+    font-weight: 800;
+    white-space: nowrap;
+    font-family: 'Arial Black', sans-serif;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #00F3FF 0%, rgba(#FF4D4F, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-bottom: 0.5rem;
+
+    // 标题下划线
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 2px;
+      background: $tech-neon;
+      box-shadow: 0 0 8px $tech-neon;
+    }
+  }
+
+  .SystemTime {
+    position: absolute;
+    top: 60%;
+    right: 2rem;
+    transform: translateY(-50%);
+    padding: 0.8rem 1.5rem;
+    background: rgba(12, 25, 55, 0.8);
+    border: 1px solid rgba($tech-neon, 0.4);
+    border-radius: 16px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.3rem;
+    color: $tech-neon;
+    box-shadow: inset 0 0 12px rgba($tech-neon, 0.2);
+
+    // 时间容器边框动画
+    &::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg,
+          transparent 40%,
+          rgba($tech-neon, 0.4),
+          transparent 60%);
+      animation: timeBorder 4s linear infinite;
+      z-index: -1;
+    }
+  }
+}
+
+// 新增动画
+@keyframes headerScan {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 200%;
+  }
+}
+
+.container {
+  // min-height: 100vh;
+  height: calc(100vh - 80px); // 减去头部高度
+  display: flex;
+  // border: 1px solid red;
+  // border-radius: 24px;
+  padding: 16px;
+  gap: 16px; // 增加容器间距
+
+
+  // 【1】左侧面板
+  .leftContainer {
+    display: flex;
+    flex: 0 0 25%;
+    flex-direction: column;
+    gap: 16px;
+
+    .detailPanel {
+      flex: 0 0 auto;
+      padding: 16px;
+      border-radius: 24px;
+
+      background: $tech-card-bg;
+      border: 1px solid $tech-border;
+      backdrop-filter: blur(10px);
+      box-shadow: $tech-shadow;
+    }
+
+    .title {
+      margin: 0 0 1.5rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: $tech-primary;
+      position: relative;
+      padding-left: 1.2rem;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 70%;
+        background: $tech-primary;
+      }
+    }
+
+    .detailItem {
+      margin: 0.8rem 0;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.9);
+
+      strong {
+        color: $tech-primary;
+        margin-right: 0.5rem;
+      }
+    }
+
+    @keyframes scan {
+      0% {
+        transform: translateY(0) rotate(45deg);
+      }
+
+      100% {
+        transform: translateY(100%) rotate(45deg);
+      }
+    }
+  }
+
+  // 【2】中间面板
+  .centerContainer {
+    display: flex;
+    height: 100%;
+    flex: 1;
+    flex-direction: column;
+    margin: 0 auto;
+    position: relative;
+
+    // 【2.1】地图容器
+    .mapContainer {
+      width: 100%;
+      height: 60%;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    // 按钮容器
+    .buttonContainer {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      perspective: 1000px;
+
+      // 按钮
+      .detectButton {
+        position: relative;
+        padding: 16px 40px;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: #fff;
+        background: linear-gradient(45deg,
+            rgba(0, 247, 255, 0.8) 0%,
+            rgba(0, 199, 255, 0.9) 100%);
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        transform-style: preserve-3d;
+
+        // 文字阴影
+        text-shadow: 0 0 8px rgba(0, 247, 255, 0.6);
+
+        // 光晕效果
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 200%;
+          height: 100%;
+          background: linear-gradient(90deg,
+              transparent,
+              rgba(255, 255, 255, 0.4),
+              transparent);
+          transform: skewX(-30deg);
+          transition: left 0.6s;
+        }
+
+        // 边框光效
+        &::after {
+          content: '';
+          position: absolute;
+          inset: -2px;
+          background: linear-gradient(45deg,
+              #00f7ff 0%,
+              #00ff88 50%,
+              #00f7ff 100%);
+          border-radius: 32px;
+          z-index: -1;
+          opacity: 0.6;
+          animation: borderLight 3s linear infinite;
+        }
+
+        &:hover {
+          transform: translateY(-2px) scale(1.05);
+          box-shadow: 0 8px 25px rgba(0, 247, 255, 0.4);
+
+          &::before {
+            left: 150%;
+          }
+        }
+
+        &:active {
+          transform: translateY(1px) scale(0.98);
+          filter: brightness(1.2);
+        }
+
+        @keyframes borderLight {
+          0% {
+            opacity: 0.4;
+          }
+
+          50% {
+            opacity: 0.8;
+          }
+
+          100% {
+            opacity: 0.4;
+          }
+        }
+
+        @keyframes pulseGlow {
+          0% {
+            box-shadow: 0 0 15px rgba(0, 247, 255, 0.4);
+          }
+
+          50% {
+            box-shadow: 0 0 25px rgba(0, 247, 255, 0.6);
+          }
+
+          100% {
+            box-shadow: 0 0 15px rgba(0, 247, 255, 0.4);
+          }
+        }
+      }
+    }
+
+
+
+    .combinedChart {
+      height: 420px;
+      margin-top: 16px;
+      width: 100% !important;
+      margin: 20px auto;
+      height: 40%;
+
+      .Temple {
+        height: 100%;
+        width: 100%;
+        background: rgba(12, 25, 55, 0.95);
+        border: 1px solid rgba(0, 247, 255, 0.3);
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0, 247, 255, 0.2);
+      }
+    }
+  }
+
+  // 【3】右侧面板
+  .rightContainer {
+    display: flex;
+    flex: 0 0 25%;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.Temple {
+  flex: 1;
+  height: auto;
+  backdrop-filter: blur(10px);
+  position: relative;
+  background: rgba(12, 25, 55, 0.9);
+  border: 1px solid rgba(0, 247, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 247, 255, 0.2);
+  border-radius: 24px;
+  padding: 10px;
+  transition: all 0.8s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(79, 172, 254, 0.1);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(90deg,
+          transparent,
+          rgba(79, 172, 254, 0.1),
+          transparent);
+      animation: flow 2s infinite;
+    }
+  }
+
+  @keyframes flow {
+    0% {
+      left: 0;
+    }
+
+    100% {
+      left: 100%;
+    }
+  }
+}
+
+
+
+// 加载效果
+// 加载效果样式
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s ease-out;
+
+  .loadingContainer {
+    background: linear-gradient(145deg, #00152e, #00264d);
+    border: 2px solid rgba(0, 247, 255, 0.3);
+    border-radius: 16px;
+    padding: 2rem 3rem;
+    width: 600px;
+    box-shadow: 0 0 40px rgba(0, 247, 255, 0.2);
+  }
+
+  .loadingTitle {
+    color: #00f7ff;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
+  }
+
+  .loadingText {
+    color: #a8d8ff;
+    margin-bottom: 1rem;
+  }
+
+  .loadingList {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+
+    li {
+      padding: 0.5rem 0;
+      color: #fff;
+      border-bottom: 1px solid rgba(0, 247, 255, 0.1);
+      font-family: monospace;
+    }
+  }
+
+  .progressBar {
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(-45deg,
+          transparent,
+          transparent 10px,
+          rgba(0, 247, 255, 0.1) 10px,
+          rgba(0, 247, 255, 0.1) 20px);
+    }
+  }
+
+  .progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, #00f7ff, #00ff88);
+    transition: width 0.3s ease-out;
+    border-radius: 6px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .loadingTips {
+    margin-top: 1rem;
+    color: #ff4757;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .blink {
+    animation: blink 1s infinite;
+    color: #ffbe0b;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

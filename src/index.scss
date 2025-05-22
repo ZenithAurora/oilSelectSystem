@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.UniqueTextStyle {
+  background: linear-gradient(45deg, #00F3FF 0%, rgba(#FF4D4F, 0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

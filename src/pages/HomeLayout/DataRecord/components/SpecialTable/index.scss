@@ -1,0 +1,161 @@
+/* 颜色定义 */
+.cyber-table-container {
+  --neon-blue: #108f95;
+  --hud-green: #66c705c8;
+  --cyber-red: #ff073a;
+  --dark-bg: #0a182e;
+}
+
+
+/* 容器样式 */
+.cyber-table-container {
+  margin: 20px;
+}
+
+/* 表格主体 */
+.cyber-table {
+  padding: 10px 0 !important;
+  background: var(--dark-bg) !important;
+  border: 1px solid rgba(0, 243, 255, 0.3) !important;
+  border-radius: 20px !important;
+}
+
+
+
+/* 表头样式 */
+.cyber-table thead>tr>th {
+  background: #0a182e !important;
+  color: var(--hud-green) !important;
+  text-shadow: 1px 1px 2px rgba(0, 243, 255, 0.3);
+  font-weight: 800;
+  position: relative;
+  text-align: center !important;
+}
+
+
+/* 表格行 */
+.cyber-table tbody>tr {
+  background: rgb(28, 41, 58) !important;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+
+// 悬浮的样式
+.cyber-table .ant-table-tbody>tr:hover>td,
+.cyber-table .ant-table-tbody>tr.ant-table-row:hover>td {
+  background-color: rgba(77, 100, 136, 0.3) !important;
+}
+
+
+
+
+.cyber-table tbody td {
+  text-align: center !important;
+  border: 1px solid rgba(0, 243, 255, 0.1) !important;
+}
+
+
+
+
+/* 分页器 */
+.cyber-pagination .ant-pagination-item,
+.cyber-pagination .ant-pagination-prev,
+.cyber-pagination .ant-pagination-next {
+  background: rgb(64, 81, 102) !important;
+  border: 1px solid var(--neon-blue) !important;
+  color: var(--neon-blue) !important;
+}
+
+
+// 分页器那一组的样式
+.cyber-pagination {
+  margin-right: 20px !important;
+  color: var(--neon-blue) !important;
+}
+
+
+// 上一页和下一页的箭头
+.cyber-pagination .ant-pagination-item-active {
+  background: var(--neon-blue) !important;
+}
+
+// 页码颜色
+.cyber-pagination .ant-pagination-item-active a {
+  // color: var(--dark-bg) !important;
+  color: var(--hud-green) !important;
+}
+
+
+
+
+/* 操作按钮 */
+.hud-button {
+  background: rgba(0, 243, 255, 0.1);
+  border: 1px solid var(--neon-blue);
+  color: var(--neon-blue);
+  padding: 4px 12px;
+  margin: 0 4px;
+  border-radius: 4px;
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  cursor: pointer;
+}
+
+.hud-button:hover {
+  background: var(--neon-blue);
+  color: black;
+  font-weight: 500;
+  scale: 1.1;
+  // box-shadow: 0 0 15px var(--neon-blue);
+}
+
+
+
+// 移除点击列的默认白色背景效果
+.cyber-table .ant-table-tbody td {
+  background-color: transparent !important;
+}
+
+.cyber-table .ant-table-tbody tr.ant-table-row-selected td {
+  background-color: transparent !important;
+}
+
+
+
+// 点击修改的时候，弹出框
+// 蒙层样式
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: modalEntrance 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.modalWrapper {
+  width: 800px;
+  background: #1a2533;
+  border-radius: 42px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: modalEntrance 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+
+// 动画定义
+@keyframes modalEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

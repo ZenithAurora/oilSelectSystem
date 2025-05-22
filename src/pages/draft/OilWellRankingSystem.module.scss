@@ -1,0 +1,307 @@
+.container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #031d44 0%, #071b2a 100%);
+  color: #e0f3ff;
+
+  // 头部区域样式
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+
+    .backBtn {
+      background: rgba(42, 90, 130, 0.3);
+      border: 1px solid #2a5a82;
+      color: #a8d8ff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+
+      &:hover {
+        background: #2a5a82;
+        transform: scale(1.03);
+        box-shadow: 0 2px 12px rgba(42, 90, 130, 0.3);
+      }
+    }
+
+    .title {
+      font-size: 1.8rem;
+      background: linear-gradient(135deg, #3a86ff 20%, #00b4d8 80%);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin: 0 2rem;
+    }
+
+    .select {
+      background: rgba(42, 90, 130, 0.8);
+      border: 1px solid #2a5a82;
+      color: white;
+      padding: 0.6rem 2rem 0.6rem 1rem;
+      border-radius: 16px;
+      appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a8d8ff'%3E%3Cpath d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.8rem center;
+      background-size: 30px;
+      font-size: 0.95rem;
+
+      &:focus {
+        outline: none;
+        border-color: #3a86ff;
+        box-shadow: 0 0 0 2px rgba(58, 134, 255, 0.2);
+      }
+    }
+  }
+
+  // 最优井组卡片
+  .topWellCard {
+    background: rgba(2, 12, 27, 0.8);
+    border: 1px solid #0a253d;
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 30px rgba(0, 38, 77, 0.25);
+    background-image: linear-gradient(135deg, rgba(58, 134, 255, 0.1), rgba(0, 119, 182, 0.1));
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .cardTitle {
+      color: #aaff3a;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 800;
+
+      &::before {
+        content: '';
+        width: 8px;
+        height: 24px;
+        background: #ff3a3a;
+        border-radius: 10px;
+      }
+    }
+
+    .topStats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .statItem {
+      padding: 1rem;
+      background: rgba(2, 12, 27, 0.3);
+      border-radius: 8px;
+      border: 1px solid rgba(42, 90, 130, 0.3);
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: scale(1.03);
+        border-color: #3a86ff;
+      }
+
+      .statLabel {
+        color: #a8d8ff;
+        font-size: 18px;
+        margin-right: 5px;
+      }
+
+      .statValue {
+        font-size: 1.2rem;
+        font-weight: 600;
+        // background: linear-gradient(135deg, #3a86ff 0%, #00b4d8 100%);
+        background: linear-gradient(135deg, #a03aff 0%, #d84f00 100%);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+    }
+  }
+
+  .centerContainer {
+    display: flex;
+    gap: 2rem;
+    align-items: stretch;
+    width: 100%;
+    min-width: 450px; // 调整高度;
+    background-color: transparent;
+    // 对比信息卡片
+
+    .compareCard {
+      flex: 0 0 40%;
+      background: rgba(2, 12, 27, 0.8);
+      border: 1px solid #0a253d;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 0;
+      max-height: 450px;
+      box-shadow: 0 8px 30px rgba(0, 38, 77, 0.25);
+      background-image: linear-gradient(135deg, rgba(255, 190, 11, 0.1), rgba(251, 86, 7, 0.1));
+      transition: transform 0.3s;
+      overflow-y: scroll;
+
+      // 滚动条样式
+      &::-webkit-scrollbar {
+        width: 0px;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      .compareGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .compareItem {
+        padding: 1rem;
+        background: rgba(2, 12, 27, 0.3);
+        border-radius: 8px;
+        border: 1px solid rgba(255, 190, 11, 0.1);
+        transition: transform 0.2s;
+
+        &:hover {
+          transform: scale(1.03);
+          border-color: #ffbe0b;
+        }
+
+        .compareLabel {
+          color: #ffbe0b;
+          font-size: 1.1rem;
+          margin-bottom: 0.8rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .compareRow {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          font-size: 0.9rem;
+
+          span {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.2rem 0;
+
+            &:nth-child(1) {
+              color: #a8d8ff;
+            }
+
+            &:nth-child(2) {
+              color: #e0f3ff;
+            }
+          }
+        }
+
+        .positive {
+          color: #00ff88;
+          font-weight: 600;
+        }
+
+        .negative {
+          color: #ff4757;
+          font-weight: 600;
+        }
+      }
+    }
+
+    // 图表卡片通用样式
+    .chartCard {
+      flex: 0 0 60%;
+      background: rgba(2, 12, 27, 0.8);
+      border: 1px solid #0a253d;
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 30px rgba(0, 38, 77, 0.25);
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      .chartTitle {
+        color: #e0f3ff;
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+
+        &::before {
+          content: '';
+          width: 4px;
+          height: 20px;
+          background: #3a86ff;
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+
+  // 详情图表头部
+  .detailHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .closeBtn {
+      background: none;
+      border: none;
+      color: #ff4757;
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: 0 0.5rem;
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: scale(1.2);
+        color: #ff6b81;
+      }
+    }
+  }
+
+  // 响应式设计
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    .header {
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: flex-start;
+
+      .title {
+        margin: 0;
+        font-size: 1.5rem;
+      }
+    }
+
+    .topWellCard,
+    .compareCard,
+    .chartCard {
+      padding: 1.5rem;
+    }
+
+    .topStats,
+    .compareGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

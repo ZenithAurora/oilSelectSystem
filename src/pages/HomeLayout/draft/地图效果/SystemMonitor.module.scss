@@ -1,0 +1,106 @@
+// 变量定义
+$tech-primary: #00f7ff; // 科技蓝
+$tech-bg: linear-gradient(45deg, #0a0e2a, #1a1f4c); // 渐变背景
+$tech-card-bg: rgba(12, 25, 55, 0.8); // 半透明卡片背景
+$tech-border: rgba(0, 247, 255, 0.3); // 科技边框
+$tech-shadow: 0 0 15px rgba(0, 247, 255, 0.3); // 科技发光效果
+
+
+.container {
+  padding: 2rem;
+  background: $tech-bg;
+  min-height: 100vh;
+  color: #fff;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.mapContainer {
+  width: 45%;
+  height: 70vh;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: $tech-shadow;
+  border: 1px solid $tech-border;
+  background: rgba(8, 18, 45, 0.9);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid $tech-primary;
+    border-radius: 12px;
+    pointer-events: none;
+    opacity: 0.3;
+  }
+}
+
+.detailPanel {
+  padding: 1.5rem;
+  margin-top: 2rem;
+  background: $tech-card-bg;
+  border-radius: 8px;
+  border: 1px solid $tech-border;
+  backdrop-filter: blur(10px);
+  box-shadow: $tech-shadow;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+        transparent 45%,
+        rgba(0, 247, 255, 0.1) 50%,
+        transparent 55%);
+    animation: scan 6s infinite linear;
+  }
+}
+
+.title {
+  margin: 0 0 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: $tech-primary;
+  position: relative;
+  padding-left: 1.2rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 70%;
+    background: $tech-primary;
+  }
+}
+
+.detailItem {
+  margin: 0.8rem 0;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+
+  strong {
+    color: $tech-primary;
+    margin-right: 0.5rem;
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(0) rotate(45deg);
+  }
+
+  100% {
+    transform: translateY(100%) rotate(45deg);
+  }
+}

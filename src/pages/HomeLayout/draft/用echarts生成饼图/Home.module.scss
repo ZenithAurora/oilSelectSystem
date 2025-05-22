@@ -1,0 +1,87 @@
+// 新增首页样式（可添加到index.scss）
+.industrial-home {
+  padding: 24px;
+  color: rgba(255, 255, 255, 0.9);
+
+  .data-card {
+    background: rgba(10, 24, 46, 0.8) !important;
+    border: 1px solid rgba(0, 243, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+    }
+
+    .data-title {
+      display: block;
+      margin-bottom: 12px;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .progress-container {
+      height: 6px;
+      background: rgba(42, 58, 78, 0.8);
+      border-radius: 3px;
+      margin-top: 12px;
+
+      .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #00F3FF 0%, #FF4D4F 100%);
+        border-radius: 2px;
+        transition: width 0.3s;
+      }
+    }
+  }
+
+  .chart-card {
+    background: rgba(10, 24, 46, 0.8) !important;
+    border: 1px solid rgba(0, 243, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .quick-actions-card,
+  .alarm-card {
+    background: rgba(10, 24, 46, 0.8) !important;
+    border: 1px solid rgba(0, 243, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .section-title {
+    margin: 0 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(42, 58, 78, 0.8);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #00F3FF;
+  }
+
+  .ant-btn-primary {
+    background: linear-gradient(90deg, #00F3FF 0%, #FF4D4F 100%) !important;
+    border: none !important;
+    box-shadow: 0 0 8px rgba(0, 243, 255, 0.3) !important;
+    transition: all 0.3s !important;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 16px rgba(0, 243, 255, 0.5) !important;
+    }
+  }
+
+  .ant-timeline-item-head {
+    background-color: transparent !important;
+    border: 2px solid #FF4D4F !important;
+  }
+
+  .ant-timeline-content {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+  }
+}

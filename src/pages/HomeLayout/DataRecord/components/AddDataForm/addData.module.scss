@@ -1,0 +1,191 @@
+// AddDataForm.module.scss
+// 使用CSS变量管理主题
+:root {
+  --cyber-blue: #00f3ff;
+  --deep-space: #0b1a2f;
+  --neon-border: #00c1d4;
+  --matrix-green: #00ff9d;
+  --hud-gray: #8a9ba8;
+  --dark-matter: #1a2533;
+}
+
+.modal {
+  padding: 2rem;
+  position: relative;
+  background: var(--dark-matter);
+  border: 1px solid rgba(var(--cyber-blue), 0.2);
+  border-radius: 36px;
+  box-shadow: 0 0 30px rgba(var(--cyber-blue), 0.1);
+  animation: modalEntrance 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(145deg,
+        rgba(var(--cyber-blue), 0.1) 0%,
+        rgba(var(--cyber-blue), 0) 30%);
+  }
+
+  .header {
+    position: relative;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(var(--cyber-blue), 0.2);
+
+    .title {
+      color: var(--cyber-blue);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      position: relative;
+      padding-left: 2rem;
+
+      &::before {
+        content: '✧';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--matrix-green);
+        animation: sparkle 1.2s infinite;
+      }
+    }
+  }
+
+  .form {
+    :global {
+      .ant-form-item {
+        margin-bottom: 1.5rem;
+
+        &-label {
+          >label {
+            color: var(--hud-gray) !important;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+
+            &::after {
+              content: ':';
+              margin-left: 2px;
+            }
+          }
+        }
+
+        &-explain {
+          font-size: 0.85rem;
+          margin-top: 6px;
+        }
+      }
+
+      .ant-input {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(var(--cyber-blue), 0.3) !important;
+        color: #fff !important;
+        padding: 0.75rem 1rem;
+        border-radius: 6px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover {
+          border-color: var(--cyber-blue) !important;
+          box-shadow: 0 0 10px rgba(var(--cyber-blue), 0.2);
+        }
+
+        &:focus {
+          box-shadow: 0 0 15px rgba(var(--cyber-blue), 0.3);
+        }
+
+        &::placeholder {
+          color: rgba(var(--hud-gray), 0.6);
+        }
+      }
+    }
+  }
+
+  .footer {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+
+    .submitBtn {
+      position: relative;
+      // background: linear-gradient(135deg, var(--cyber-blue), #213240);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #008cff71;
+      padding: 0.75rem 1.2rem;
+      border-radius: 32px;
+      color: #fff;
+      overflow: hidden;
+      transition: all 0.8s ease;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
+        transform: rotate(45deg);
+        animation: btnGlow 4s infinite;
+      }
+
+      &:hover {
+        padding: 0.75rem 1.8rem;
+        box-shadow: 0 5px 15px rgba(var(--cyber-blue), 0.8);
+      }
+    }
+
+    .cancelBtn {
+      border-radius: 32px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #008cff71;
+      color: var(--hud-gray);
+      transition: all 1s ease;
+
+      &:hover {
+        background-color: rgba(255, 0, 0, 0.361);
+        border: 1px solid rgba(255, 0, 0, 0.361);
+        color: white;
+        padding: 0.75rem 1.5rem;
+      }
+    }
+  }
+}
+
+// 动画定义
+@keyframes modalEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sparkle {
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes btnGlow {
+  to {
+    transform: rotate(45deg) translateX(400%);
+  }
+}
