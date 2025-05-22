@@ -15,6 +15,9 @@ const OilWellRankingSystem = () => {
   const [topWellGroup, setTopWellGroup] = useState(null); // 最优井组数据
   const [compareData, setCompareData] = useState(null); // 当前井与最优井对比数据
 
+
+
+
   // 图表引用
   const rankingChartRef = useRef();
   const detailChartRef = useRef();
