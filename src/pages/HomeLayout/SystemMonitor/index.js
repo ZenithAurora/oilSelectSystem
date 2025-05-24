@@ -532,7 +532,7 @@ const SystemMonitor = () => {
       {isLoading && (
         <div className={styles.loadingOverlay}>
           <div className={styles.loadingContainer}>
-            <h2 className={styles.loadingTitle}>油井智能分析中...</h2>
+            <h2 className={styles.loadingTitle}>数据对比分析中...</h2>
             <p className={styles.loadingText}>正在执行以下操作：</p>
             <ul className={styles.loadingList}>
               <li>▹ 数据特征提取 ({(progress * 0.3).toFixed(1)}%)</li>

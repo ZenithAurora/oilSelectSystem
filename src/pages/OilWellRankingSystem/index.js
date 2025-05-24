@@ -54,7 +54,7 @@ const OilWellRankingSystem = () => {
 
   // 页面初始的时候，给用户一个提示
   useEffect(() => {
-    message.success('成功计算出最优井组，您可以开始进行对比分析')
+    message.success('成功预测出甜点区，您可以开始进行对比分析')
   }, []);
 
 
@@ -359,7 +359,7 @@ const OilWellRankingSystem = () => {
         <button className={styles.backBtn} onClick={() => navigate(-1)}>
           <i className="fa fa-arrow-left mr-2"></i>返回
         </button>
-        <h1 className={styles.title}>最佳油井数据评测系统</h1>
+        <h1 className={styles.title}>甜点区数据可视化大屏</h1>
         <select
           value={currentIndex}
           onChange={(e) => setCurrentIndex(e.target.value)}
@@ -374,7 +374,7 @@ const OilWellRankingSystem = () => {
       {/* 最优井组信息卡片（不变） */}
       {topWellGroup && (
         <div className={styles.topWellCard}>
-          <h3 className={styles.cardTitle}>最优井名：{topWellGroup.WellName}</h3>
+          <h3 className={styles.cardTitle}>甜点区：{topWellGroup.WellName}</h3>
           <div className={styles.topStats}>
             <div className={styles.statItem}>
               <span className={styles.statLabel}>样本数量</span>
@@ -402,7 +402,7 @@ const OilWellRankingSystem = () => {
           {/* 对比信息卡片*/}
           {compareData && (
             <div className={styles.compareCard}>
-              <h3 className={styles.compareCardTitle}>{selectedWell || null}与最优井对比</h3>
+              <h3 className={styles.compareCardTitle}>{selectedWell || null}与甜点区对比</h3>
 
               {/* 对比信息网格布局 */}
               <div className={styles.compareGrid}>
@@ -410,7 +410,7 @@ const OilWellRankingSystem = () => {
                   <div className={styles.compareLabel}>综合指数(GH)</div>
                   <div className={styles.compareRow}>
                     <span>当前井：{compareData.GH.current}</span>
-                    <span>最优井：{compareData.GH.top}</span>
+                    <span>甜点区：{compareData.GH.top}</span>
                     <span className={compareData.GH.diff >= 0 ? styles.positive : styles.negative}>
                       差值：{compareData.GH.diff}
                     </span>
@@ -420,7 +420,7 @@ const OilWellRankingSystem = () => {
                   <div className={styles.compareLabel}>总有机碳(TOC)</div>
                   <div className={styles.compareRow}>
                     <span>当前井：{compareData.TOC.current}</span>
-                    <span>最优井：{compareData.TOC.top}</span>
+                    <span>甜点区：{compareData.TOC.top}</span>
                     <span className={compareData.TOC.diff >= 0 ? styles.positive : styles.negative}>
                       差值：{compareData.TOC.diff}
                     </span>
@@ -430,7 +430,7 @@ const OilWellRankingSystem = () => {
                   <div className={styles.compareLabel}>氢指数(HI)</div>
                   <div className={styles.compareRow}>
                     <span>当前井：{compareData.HI.current}</span>
-                    <span>最优井：{compareData.HI.top}</span>
+                    <span>甜点区：{compareData.HI.top}</span>
                     <span className={compareData.HI.diff >= 0 ? styles.positive : styles.negative}>
                       差值：{compareData.HI.diff}
                     </span>
@@ -440,7 +440,7 @@ const OilWellRankingSystem = () => {
                   <div className={styles.compareLabel}>储层高度(m)</div>
                   <div className={styles.compareRow}>
                     <span>当前井：{compareData.Height.current}</span>
-                    <span>最优井：{compareData.Height.top}</span>
+                    <span>甜点区：{compareData.Height.top}</span>
                     <span className={compareData.Height.diff >= 0 ? styles.positive : styles.negative}>
                       差值：{compareData.Height.diff}
                     </span>
