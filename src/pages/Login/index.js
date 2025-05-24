@@ -46,7 +46,7 @@ const Login = () => {
           {/* 左侧品牌区 */}
           <div className="brand-panel">
             <img src={logo} alt="logo" className="logo-icon" />
-            <Title level={2} className="system-title">智能油田筛选系统</Title>
+            <Title level={2} className="system-title">页岩油甜点预测系统</Title>
             <Text className="system-tagline">数据赋能精准勘探</Text>
           </div>
 
