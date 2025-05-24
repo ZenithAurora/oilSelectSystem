@@ -207,7 +207,7 @@ const SystemMonitor = () => {
           max: xAxisRange[1],
           axisLabel: { formatter: value => value.toFixed(0) + 'm' },
           axisLine: { lineStyle: { color: '#00f7ff' } },
-          // splitLine: { show: true }
+          splitLine: { show: false }
         },
         yAxis: {
           type: 'value',
@@ -215,7 +215,7 @@ const SystemMonitor = () => {
           min: minVal - yPadding,
           max: maxVal + yPadding,
           axisLine: { lineStyle: { color: '#00f7ff' } },
-          // splitLine: { show: true },
+          splitLine: { show: false },
           axisLabel: {
             formatter: value => dataKey === 'TMax' ? `${value}°C` : value
           }
