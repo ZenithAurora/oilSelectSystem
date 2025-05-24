@@ -55,7 +55,7 @@ const HomePage = () => {
       {/* 头部导航 */}
       <header className={styles.header}>
         <div className={styles.logoContainer}>
-          <h1 className={styles.title}>智测油然而生</h1>
+          <h1 className={styles.title}>智能甜点预测</h1>
         </div>
         <nav className={styles.nav}>
           <a href="#features" className={styles.navLink}>核心功能</a>
@@ -84,7 +84,7 @@ const HomePage = () => {
       <div className={styles.mainContent}>
         {/* 首页网站介绍 */}
         <section className={styles.ctaSection}>
-          <h2 className={styles.ctaTitle}>页岩油甜点评测系统</h2>
+          <h2 className={styles.ctaTitle}>页岩油甜点预测系统</h2>
 
           <div className={styles.ctaContent}>
             <div className={styles.catSectionLeft}>
@@ -259,7 +259,7 @@ const HomePage = () => {
             <div className={styles.footerColumn}>
               <h4>公司信息</h4>
               <p>西南石油大学产学研成果</p>
-              <p>© 2025 智测油然而生 版权所有</p>
+              <p>© 2025 创数据团队 版权所有</p>
             </div>
             <div className={styles.footerColumn}>
               <h4>快速链接</h4>
