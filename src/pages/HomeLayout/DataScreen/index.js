@@ -257,7 +257,7 @@ const DataScreen = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h1 className={styles.title}>油田勘探数据可视化平台</h1>
+        <h1 className={styles.title}>系统样本数据概览</h1>
       </div>
 
       {/* 第一行的数据卡片 */}
