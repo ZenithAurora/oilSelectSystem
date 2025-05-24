@@ -69,7 +69,7 @@ const HomeLayout = () => {
         style={{ position: 'fixed', height: '100vh', zIndex: 100 }}
       >
         <div className="industrial-logo">
-          <img src={logo} alt="智能油田筛选系统" className='logoImg' />
+          <img src={logo} alt="页岩油甜点预测系统" className='logoImg' />
           <span className="gradient-text">{!collapsed && '智能油田筛选系统'}</span>
         </div>
 
