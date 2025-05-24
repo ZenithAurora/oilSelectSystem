@@ -511,7 +511,7 @@ const SystemMonitor = () => {
 
           {/* 一键检测按钮 */}
           <div className={styles.buttonContainer}>
-            <button className={styles.detectButton} onClick={handleDetect}>寻找"甜点"</button>
+            <button className={styles.detectButton} onClick={handleDetect}>预测"甜点"区</button>
           </div>
 
           {/* (2)中间是TOC  PG  HI  TMax  的联合图像  x 轴是Height */}
