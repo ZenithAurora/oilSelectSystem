@@ -343,7 +343,7 @@ const OilWellRankingSystem = () => {
     { label: '综合指数(GH)', value: 'GH' },
     { label: '氢指数(HI)', value: 'HI' },
     { label: '总有机碳(TOC)', value: 'TOC' },
-    { label: '热解生烃潜量(PG)', value: 'PG' }
+    // { label: '热解生烃潜量(PG)', value: 'PG' }
   ];
 
   const getIndexLabel = (value) => {

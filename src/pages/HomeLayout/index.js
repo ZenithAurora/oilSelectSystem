@@ -49,11 +49,11 @@ const HomeLayout = () => {
       icon: <MonitorOutlined />,
       label: <Link to="systemmonitor">可视化大屏</Link>,
     },
-    {
-      key: '/home/systemmanage',
-      icon: <SettingOutlined />,
-      label: <Link to="systemmanage">系统管理</Link>,
-    }
+    // {
+    //   key: '/home/systemmanage',
+    //   icon: <SettingOutlined />,
+    //   label: <Link to="systemmanage">系统管理</Link>,
+    // }
 
   ];
 
