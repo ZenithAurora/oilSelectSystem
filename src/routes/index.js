@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import React, { Suspense } from "react";
-
+import { Spin } from "antd";
 
 // import HomeLayout from "@/pages/HomeLayout";
 // import Login from "@/pages/Login";
@@ -27,7 +27,7 @@ const OilWellRankingSystem = React.lazy(() => import("@/pages/OilWellRankingSyst
 
 
 // 【2】定义加载时的占位组件（可以自定义样式）
-const LoadingComponent = () => <div style={{ margin: "10px auto", color: "red" }}>加载中...</div>;
+const LoadingComponent = () => <div style={{ padding: 200 }}><Spin /></div>
 
 
 
